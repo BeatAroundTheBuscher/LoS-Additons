@@ -38,3 +38,15 @@ items:
 
   - type: STR_SPICE_BANDAGES
     experienceTrainingMode: 19
+
+  - type: STR_CUTTER_PISTOL_CLIP
+    requiresBuy:
+      - STR_CUTTER_PISTOL_CLIP
+
+  - type: STR_CUTTER_RIFLE_CLIP
+    requiresBuy:
+      - STR_CUTTER_RIFLE_CLIP
+
+  - type: STR_MACHINE_GUN_CUTTER_CLIP
+    requiresBuy:
+      - STR_MACHINE_GUN_CUTTER_CLIP

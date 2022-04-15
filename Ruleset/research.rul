@@ -1,0 +1,6 @@
+ research: 
+  - name: STR_SMUGGLER_CONTACTS
+    unlocks: !add
+    - STR_CUTTER_PISTOL_CLIP
+    - STR_CUTTER_RIFLE_CLIP
+    - STR_MACHINE_GUN_CUTTER_CLIP

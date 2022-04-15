@@ -23,8 +23,8 @@ units:
       - []
       - - STR_PERSONAL_SHIELD_GENERATOR
 
-  - type: STR_SARDAUKAR_OFFICER
+  - type: STR_ATREIDES_OFFICER
     builtInWeaponSets:
       - []
       - []
-      - - STR_ATREIDES_OFFICER
+      - - STR_PERSONAL_SHIELD_GENERATOR

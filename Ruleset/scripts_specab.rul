@@ -32,7 +32,7 @@ extended:
                 battle_game.randomRange tmp 0 2;
                 # debug_log "randomRange rolled" tmp;
 
-                set tmp 0; # 0 and 2 don't work as they don't trigger damageSpecialUnit
+                set tmp 0; # 1 and 2 don't work as they don't trigger damageSpecialUnit
 
                 if eq tmp 0; # target explodes
                   battle_game.flashLongMessage "Las hit Shield! Target explodes!";

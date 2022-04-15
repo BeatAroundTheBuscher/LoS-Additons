@@ -1,0 +1,4 @@
+# Bug Fixes for LoS v 0.28
+
+armors:
+  - delete: STR_NONE_UC

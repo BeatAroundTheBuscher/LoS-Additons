@@ -1,7 +1,6 @@
 name: "Land of Sands Additions"
 version: "0.1"
 author: "B"
-description: "Some additions to the dune mod"
+description: "Some additions for the Dune Mod 'Lands of Sands'"
 id: "los-additions"
 master: "LandOfSand"
-

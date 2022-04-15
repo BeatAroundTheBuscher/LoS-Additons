@@ -1,0 +1,17 @@
+## Changelog
+
+- Personal Shields are equipable items now that 
+  - block all damage but Blades (Melee) and Shock (Stun)
+  - blows up when shot by a Las weapon
+- Personal Shields are given to enemy depending on current tech level (months passed)
+- Personal Shields can not be extracted from bodies (cold or warm)
+- Cutter ammo was moved back a bit.
+- Database article for cutter ammo becomes available once cutter ammo is purchasable
+- Melee weapons train reactions additionally to melee
+- Bandages train bravery
+- Bandages are actually used up
+- Spice Bandages are produced in bunches of three to compensate
+- Spice recovers 40 Energy and 10 Stun
+- Bugfix for 0.28 so it runs in OXCE without the hotfix
+- Expedition and Spotting are set to undetectable (assuming Hunter Killers ever become a thing)
+- Show Throwing Accuracy in the inventory screen next to FA, melee and PSI

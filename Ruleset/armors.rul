@@ -1,0 +1,30 @@
+units:
+  - type: STR_GUILD_NAVIGATOR
+    builtInWeaponSets:
+      - []
+      - - STR_PERSONAL_SHIELD_GENERATOR
+      - - STR_PERSONAL_SHIELD_GENERATOR
+
+  - type: STR_HARKONNEN_LEADER
+    builtInWeaponSets:
+      - []
+      - - STR_PERSONAL_SHIELD_GENERATOR
+      - - STR_PERSONAL_SHIELD_GENERATOR
+
+  - type: STR_HARKONNEN_MENTAT
+    builtInWeaponSets:
+      - []
+      - []
+      - - STR_PERSONAL_SHIELD_GENERATOR
+
+  - type: STR_SARDAUKAR_OFFICER
+    builtInWeaponSets:
+      - []
+      - []
+      - - STR_PERSONAL_SHIELD_GENERATOR
+
+  - type: STR_SARDAUKAR_OFFICER
+    builtInWeaponSets:
+      - []
+      - []
+      - - STR_ATREIDES_OFFICER

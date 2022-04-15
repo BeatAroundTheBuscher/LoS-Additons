@@ -35,9 +35,11 @@ items:
 
   - type: STR_BANDAGES
     experienceTrainingMode: 19
+    isConsumable: true
 
   - type: STR_SPICE_BANDAGES
     experienceTrainingMode: 19
+    isConsumable: true
 
   - type: STR_CUTTER_PISTOL_CLIP
     requiresBuy:

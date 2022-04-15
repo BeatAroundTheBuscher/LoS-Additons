@@ -39,3 +39,7 @@ manufacture:
     producedItems:
       STR_ARMOR_PARTS: 2
 #      STR_PERSONAL_SHIELD_GENERATOR: 1
+
+  - name: STR_SPICE_BANDAGES
+    producedItems:
+      STR_SPICE_BANDAGES: 3

@@ -13,24 +13,23 @@ extended:
           var int tmp;
 
           var int numInventoryItems;
-          var ptre BattleItem someItem;
-          var int shieldHP;
+          var ptre BattleItem personalShieldItem;
+          var int isPersonalShield;
 
 
           debug_log "damaging_type" damaging_type;
 
-          unit.getInventoryItem.size numInventoryItems;
+          unit.getInventoryItem.size numInventoryItems; # find personal shield
           loop var i numInventoryItems;
-            unit.getInventoryItem someItem i;
-            someItem.getTag shieldHP Tag.ITEM_IS_PERSONAL_SHIELD;
-            if eq shieldHP 1;
-              someItem.getAmmoQuantity shieldHP;
-              if and eq damaging_type 4 gt shieldHP 1; 
+            unit.getInventoryItem personalShieldItem i;
+            personalShieldItem.getTag isPersonalShield Tag.ITEM_IS_PERSONAL_SHIELD;
+            if eq isPersonalShield 1;
+              if eq damaging_type 4; # 4 = DT_LASER
                 battle_game.flashMessage "Las hit Shield!";
                 set power 9999; # should always be able to kill
-              else gt shieldHP 1;
-                battle_game.flashMessage "Shield hit!";
-                # sub power shieldHP;
+              else neq damaging_type 7; # 7 = DT_MELEE # LoS calls this 'BLADES'
+                battle_game.flashMessage "Shield absorbed Damage!";
+                set power 0;
               end;
             end;
           end;
@@ -43,17 +42,17 @@ extended:
       - offset: 10
         code: |
           var int tmp;
-          var ptr RuleArmor someArmor;
+          var ptr RuleArmor victimArmor;
 
           var int numInventoryItems;
-          var ptre BattleItem someItem;
-          var int shieldHP;
+          var ptre BattleItem personalShieldItem;
+          var int isPersonalShield;
 
 
           debug_log "damageSpecialUnit"; 
 
-          unit.getRuleArmor someArmor;
-          someArmor.getTag tmp Tag.ARMOR_ALWAYS_EXPLODES; # does not allow shields
+          unit.getRuleArmor victimArmor;
+          victimArmor.getTag tmp Tag.ARMOR_ALWAYS_EXPLODES; # does not allow shields
 
           if eq tmp 1;
             unit.getHealth tmp;
@@ -67,19 +66,17 @@ extended:
           end;
 
           if eq damaging_type 4; # 4 = DT_LASER
-            unit.getInventoryItem.size numInventoryItems;
+            unit.getInventoryItem.size numInventoryItems;  # find personal shield
             loop var i numInventoryItems;
-              unit.getInventoryItem someItem i;
-              someItem.getTag shieldHP Tag.ITEM_IS_PERSONAL_SHIELD;
-              if eq shieldHP 1;
-                someItem.getAmmoQuantity shieldHP;
-                if and eq damaging_type 4 gt shieldHP 1; 
-                  debug_log "Las hit Shield!";
-                  set self_destruct_chance 100;
-                  return;
-                end;
+              unit.getInventoryItem personalShieldItem i;
+              personalShieldItem.getTag isPersonalShield Tag.ITEM_IS_PERSONAL_SHIELD;
+              if eq isPersonalShield 1;
+                debug_log "Las hit Shield!";
+                set self_destruct_chance 100;
+                return;
               end;
             end;
           end;
+
           set self_destruct_chance 0;
           return;

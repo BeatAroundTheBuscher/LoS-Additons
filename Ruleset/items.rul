@@ -5,7 +5,7 @@ extended:
 
 items:
   - type: STR_PERSONAL_SHIELD_GENERATOR
-    battleType: 2
-    clipSize: 40
+    battleType: 2 # show up in craft inventory
+    clipSize: -1
     tags:
       ITEM_IS_PERSONAL_SHIELD: 1

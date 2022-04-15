@@ -1,0 +1,85 @@
+
+extended:
+  tags:
+    RuleItem:
+      ITEM_IS_PERSONAL_SHIELD: int
+    RuleArmor:
+      ARMOR_ALWAYS_EXPLODES: int
+
+  scripts:
+    hitUnit:
+      - offset: 10
+        code: | 
+          var int tmp;
+
+          var int numInventoryItems;
+          var ptre BattleItem someItem;
+          var int shieldHP;
+
+
+          debug_log "damaging_type" damaging_type;
+
+          unit.getInventoryItem.size numInventoryItems;
+          loop var i numInventoryItems;
+            unit.getInventoryItem someItem i;
+            someItem.getTag shieldHP Tag.ITEM_IS_PERSONAL_SHIELD;
+            if eq shieldHP 1;
+              someItem.getAmmoQuantity shieldHP;
+              if and eq damaging_type 4 gt shieldHP 1; 
+                battle_game.flashMessage "Las hit Shield!";
+                set power 9999; # should always be able to kill
+              else gt shieldHP 1;
+                battle_game.flashMessage "Shield hit!";
+                # sub power shieldHP;
+              end;
+            end;
+          end;
+
+          return power part side;
+
+          
+
+    damageSpecialUnit: 
+      - offset: 10
+        code: |
+          var int tmp;
+          var ptr RuleArmor someArmor;
+
+          var int numInventoryItems;
+          var ptre BattleItem someItem;
+          var int shieldHP;
+
+
+          debug_log "damageSpecialUnit"; 
+
+          unit.getRuleArmor someArmor;
+          someArmor.getTag tmp Tag.ARMOR_ALWAYS_EXPLODES; # does not allow shields
+
+          if eq tmp 1;
+            unit.getHealth tmp;
+            if le tmp 0;
+              set self_destruct_chance 100;
+            else;
+              set self_destruct_chance 0;
+            end;
+            
+            return;
+          end;
+
+          if eq damaging_type 4; # 4 = DT_LASER
+            unit.getInventoryItem.size numInventoryItems;
+            loop var i numInventoryItems;
+              unit.getInventoryItem someItem i;
+              someItem.getTag shieldHP Tag.ITEM_IS_PERSONAL_SHIELD;
+              if eq shieldHP 1;
+                someItem.getAmmoQuantity shieldHP;
+                if and eq damaging_type 4 gt shieldHP 1; 
+                  debug_log "Las hit Shield!";
+                  set self_destruct_chance 100;
+                  return;
+                end;
+              end;
+            end;
+          end;
+          set self_destruct_chance 0;
+          return;

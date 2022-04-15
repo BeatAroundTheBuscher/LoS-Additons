@@ -1,0 +1,150 @@
+# set specab to every enemy unit
+
+
+extended:
+  tags:
+    RuleArmor:
+      ARMOR_ALWAYS_EXPLODES: int
+
+units:
+  - type: STR_BAT
+    specab: 1
+  - type: STR_HARKONNEN_TROOPER
+    specab: 1
+  - type: STR_HARKONNEN_SLAVE
+    specab: 1
+  - type: STR_HARKONNEN_MEDIC
+    specab: 1
+  - type: STR_HARKONNEN_LEADER
+    specab: 1
+  - type: STR_HARKONNEN_MENTAT
+    specab: 1
+  - type: STR_HARKONNEN_DEVASTATOR
+    specab: 1 # needs special handling
+  - type: STR_HARKONNEN_BLOODDOG
+    specab: 1
+  - type: STR_SARDAUKAR_SOLDIER
+    specab: 1
+  - type: STR_SARDAUKAR_NAKALYA
+    specab: 1
+  - type: STR_SARDAUKAR_TROOPER
+    specab: 1
+  - type: STR_SARDAUKAR_OFFICER
+    specab: 1
+  - type: STR_SARDAUKAR_ALTAIR
+    specab: 1
+  - type: STR_GUILD_TROOPER
+    specab: 1
+  - type: STR_GUILD_SERVANT
+    specab: 1
+  - type: STR_GUILD_GUARD
+    specab: 1
+  - type: STR_GUILD_NAVIGATOR
+    specab: 1
+  - type: STR_GUILD_TORTURE_SPHERE
+    specab: 1
+  - type: STR_SMUGGLER_THUG
+    specab: 1
+  - type: STR_SMUGGLER_ROGUE
+    specab: 1
+  - type: STR_ATREIDES_DEFECTOR
+    specab: 1
+  - type: STR_ATREIDES_OFFICER
+    specab: 1
+  - type: STR_SMUGGLER_DRONE
+    specab: 1
+  - type: STR_GESSERIT_SISTER
+    specab: 1
+
+
+items:
+  - &STR_SHIELD_EXPLOSION_POWER
+    type: STR_BAT_CORPSE
+    power: 85
+    damageAlter:
+      FixRadius: 7
+#      IgnoreSelfDestruct: true
+
+
+  - type: STR_HARKONNEN_TROOPER_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_HARKONNEN_SLAVE_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_HARKONNEN_MEDIC_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_HARKONNEN_LEADER_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_HARKONNEN_MENTAT_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_HARKONNEN_DEVASTATOR_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+#  - type: DEVASTATOR_CORPSE_1
+#  - type: DEVASTATOR_CORPSE_2
+#  - type: DEVASTATOR_CORPSE_3
+#  - type: DEVASTATOR_CORPSE_4
+  - type: STR_HARKONNEN_BLOODDOG_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_SARDAUKAR_SOLDIER_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_SARDAUKAR_TROOPER_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_SARDAUKAR_NAKALYA_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_SARDAUKAR_OFFICER_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_SARDAUKAR_ALTAIR_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+#  - type: ALTAIR_CORPSE_1
+#  - type: ALTAIR_CORPSE_2
+#  - type: ALTAIR_CORPSE_3
+#  - type: ALTAIR_CORPSE_4
+  - type: STR_GUILD_SERVANT_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_GUILD_GUARD_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_GUILD_TROOPER_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_GUILD_NAVIGATOR_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_GUILD_TORTURE_SPHERE_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_SMUGGLER_THUG_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_SMUGGLER_ROGUE_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_ATREIDES_DEFECTOR_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_ATREIDES_OFFICER_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_SMUGGLER_DRONE_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_GESSERIT_SISTER_CORPSE
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+
+## player
+
+  - type: STR_CORPSE_FREMEN
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_CORPSE_FEDAYKIN
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_CORPSE_STILLSUIT
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+  - type: STR_CORPSE_STILLSUIT_FEDAYKIN
+    refNode: *STR_SHIELD_EXPLOSION_POWER
+
+
+armors: # player armor
+  - type: STR_ARMOR_FREMEN_CLOTHING_UC
+    specab: 1
+  - type: STR_ARMOR_STILLSUIT_UC
+    specab: 1
+  - type: STR_ARMOR_FREMEN_CLOTHING_FEDAYKIN_UC
+    specab: 1
+  - type: STR_ARMOR_STILLSUIT_FEDAYKIN_UC
+    specab: 1
+
+# special armor
+
+  - type: STR_HARKONNEN_DEVASTATOR_ARMOR
+    tags:
+      ARMOR_ALWAYS_EXPLODES: 1

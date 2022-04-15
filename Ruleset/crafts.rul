@@ -1,0 +1,6 @@
+crafts:
+  - type: STR_EXPEDITION
+    undetectable: true
+
+  - type: STR_SPOTTER_TEAM
+    undetectable: true

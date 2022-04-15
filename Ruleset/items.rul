@@ -52,3 +52,16 @@ items:
   - type: STR_MACHINE_GUN_CUTTER_CLIP
     requiresBuy:
       - STR_MACHINE_GUN_CUTTER_CLIP
+
+  - type: STR_SPICE
+    battleType: 6
+    isConsumable: true
+    medikitType: 2 # Stimulant only
+    medikitTargetSelf: true
+    stimulant: 3
+    stunRecovery: 10
+    energyRecovery: 40
+    moraleRecovery: 10
+    tuUse: 10
+    flatRate: true
+    

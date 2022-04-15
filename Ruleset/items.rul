@@ -9,3 +9,32 @@ items:
     clipSize: -1
     tags:
       ITEM_IS_PERSONAL_SHIELD: 1
+
+# https://openxcom.org/forum/index.php/topic,4230.0.html
+
+  - type: STR_KNIFE
+    experienceTrainingMode: 13
+
+  - type: STR_CRYSKNIFE
+    experienceTrainingMode: 13
+
+  - type: STR_KINDJAL
+    experienceTrainingMode: 13
+
+  - type: STR_SLIPTIP
+    experienceTrainingMode: 13
+
+  - type: STR_RAPIER
+    experienceTrainingMode: 13
+
+  - type: STR_SPEAR
+    experienceTrainingMode: 13
+
+  - type: STR_STUN_ROD
+    experienceTrainingMode: 13
+
+  - type: STR_BANDAGES
+    experienceTrainingMode: 19
+
+  - type: STR_SPICE_BANDAGES
+    experienceTrainingMode: 19

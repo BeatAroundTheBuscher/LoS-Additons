@@ -5,6 +5,8 @@ extended:
       ITEM_IS_PERSONAL_SHIELD: int
     RuleArmor:
       ARMOR_ALWAYS_EXPLODES: int
+    BattleUnit:
+      WILL_EXPLODE_NOW: int
 
   scripts:
     hitUnit:
@@ -16,8 +18,10 @@ extended:
           var ptre BattleItem personalShieldItem;
           var int isPersonalShield;
 
+          var ptr RuleUnit testUnit;
 
-          debug_log "damaging_type" damaging_type;
+
+          # debug_log "damaging_type" damaging_type;
 
           unit.getInventoryItem.size numInventoryItems; # find personal shield
           loop var i numInventoryItems;
@@ -25,8 +29,40 @@ extended:
             personalShieldItem.getTag isPersonalShield Tag.ITEM_IS_PERSONAL_SHIELD;
             if eq isPersonalShield 1;
               if eq damaging_type 4; # 4 = DT_LASER
-                battle_game.flashMessage "Las hit Shield!";
-                set power 9999; # should always be able to kill
+                battle_game.randomRange tmp 0 2;
+                # debug_log "randomRange rolled" tmp;
+
+                set tmp 0; # 0 and 2 don't work as they don't trigger damageSpecialUnit
+
+                if eq tmp 0; # target explodes
+                  battle_game.flashLongMessage "Las hit Shield! Target explodes!";
+                  unit.setTag Tag.WILL_EXPLODE_NOW 1;
+                  set power 9999; # should always be able to kill
+                else eq tmp 1; # shooter explodes
+                  battle_game.flashLongMessage "Las hit Shield! Attacker explodes!";
+                  set power 0;
+                  attacker.setTag Tag.WILL_EXPLODE_NOW 1;
+                  attacker.setHealth 0;
+
+                  # different attempts to trigger damageSpecialUnit
+                  # attacker.setStun 999;
+                  # rules.getRuleUnit testUnit "STR_BAT";
+                  # attacker.setHealth 0;
+                  # attacker.setSpawnUnit testUnit;
+                  # attacker.setSpawnUnitInstantRespawn 1;
+                  # attacker.setHealth 0;
+
+                else eq tmp 2; # both explode
+                  battle_game.flashLongMessage "Las hit Shield! Target and Attacker explode!";
+                  unit.setTag Tag.WILL_EXPLODE_NOW 1;
+                  set power 9999; # should always be able to kill
+                  attacker.setTag Tag.WILL_EXPLODE_NOW 1;
+                  attacker.setHealth 0;
+                else;
+                  debug_log "Las hit Shield! INVALID STATE!!!";
+                  battle_game.flashLongMessage "Las hit Shield! INVALID STATE!!!";
+                end;
+
               else neq damaging_type 7; # 7 = DT_MELEE # LoS calls this 'BLADES'
                 battle_game.flashMessage "Shield absorbed Damage!";
                 set power 0;
@@ -36,12 +72,18 @@ extended:
 
           return power part side;
 
-          
+    # damageUnit:
+    #   - offset: 10
+    #     code: |
+    #       debug_log "damageUnit"; 
+    #       debug_log "unit" unit;
+    #       return;
 
     damageSpecialUnit: 
       - offset: 10
         code: |
           var int tmp;
+          var int willExplode;
           var ptr RuleArmor victimArmor;
 
           var int numInventoryItems;
@@ -49,34 +91,25 @@ extended:
           var int isPersonalShield;
 
 
-          debug_log "damageSpecialUnit"; 
+          # debug_log "damageSpecialUnit"; 
+          # debug_log "unit" unit;
 
           unit.getRuleArmor victimArmor;
           victimArmor.getTag tmp Tag.ARMOR_ALWAYS_EXPLODES; # does not allow shields
 
-          if eq tmp 1;
+          set willExplode tmp;
+
+          unit.getTag tmp Tag.WILL_EXPLODE_NOW;
+
+          add willExplode tmp;
+
+          if gt willExplode 0;
             unit.getHealth tmp;
             if le tmp 0;
               set self_destruct_chance 100;
             else;
               set self_destruct_chance 0;
             end;
-            
-            return;
           end;
 
-          if eq damaging_type 4; # 4 = DT_LASER
-            unit.getInventoryItem.size numInventoryItems;  # find personal shield
-            loop var i numInventoryItems;
-              unit.getInventoryItem personalShieldItem i;
-              personalShieldItem.getTag isPersonalShield Tag.ITEM_IS_PERSONAL_SHIELD;
-              if eq isPersonalShield 1;
-                debug_log "Las hit Shield!";
-                set self_destruct_chance 100;
-                return;
-              end;
-            end;
-          end;
-
-          set self_destruct_chance 0;
           return;

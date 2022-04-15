@@ -63,7 +63,7 @@ extended:
                   battle_game.flashLongMessage "Las hit Shield! INVALID STATE!!!";
                 end;
 
-              else neq damaging_type 7; # 7 = DT_MELEE # LoS calls this 'BLADES'
+              else and neq damaging_type 6 neq damaging_type 7; # 6 = DT_STUN # LoS calls this 'SHOCK' # 7 = DT_MELEE # LoS calls this 'BLADES'
                 battle_game.flashMessage "Shield absorbed Damage!";
                 set power 0;
               end;
@@ -83,6 +83,7 @@ extended:
       - offset: 10
         code: |
           var int tmp;
+          var int health;
           var int willExplode;
           var ptr RuleArmor victimArmor;
 
@@ -94,22 +95,23 @@ extended:
           # debug_log "damageSpecialUnit"; 
           # debug_log "unit" unit;
 
-          unit.getRuleArmor victimArmor;
+          unit.getRuleArmor victimArmor; # if tank that always explodes
           victimArmor.getTag tmp Tag.ARMOR_ALWAYS_EXPLODES; # does not allow shields
 
-          set willExplode tmp;
-
+          set willExplode tmp; # or explodes due to Las -> Shield interaction
           unit.getTag tmp Tag.WILL_EXPLODE_NOW;
 
           add willExplode tmp;
+          unit.getHealth health;
 
-          if gt willExplode 0;
-            unit.getHealth tmp;
-            if le tmp 0;
-              set self_destruct_chance 100;
-            else;
-              set self_destruct_chance 0;
-            end;
+
+
+          if and gt willExplode 0 le health 0;
+            set self_destruct_chance 100;
+            # debug_log "self_destruct_chance" self_destruct_chance;
+          else;
+            set self_destruct_chance 0;
+            # debug_log "self_destruct_chance" self_destruct_chance;
           end;
 
           return;

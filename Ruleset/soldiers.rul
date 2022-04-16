@@ -1,0 +1,3 @@
+soldiers:
+  - type: STR_SOLDIER
+    costBuy: 15000 # water from burial has 10k sell value

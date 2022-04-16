@@ -105,5 +105,22 @@ items:
       STR_WATER: [5]
 
   - type: STR_WEIRDING_MODULE
-    tuUse: 30
-    tuSnap: 30
+    battleType: 1
+    damageType: 5
+    damageAlter:
+      FixRadius: 2
+    accuracySnap: 100
+    tuSnap: 35
+    power: 0
+    bulletSprite: {mod: LandOfSand, index: 27}
+    fireSound: {mod: LandOfSand, index: 103}
+    hitSound: {mod: LandOfSand, index: 19}
+    hitAnimation: {mod: LandOfSand, index: 100}
+    clipSize: -1
+
+    damageBonus:
+      psiStrength: 1.0
+    accuracyMultiplier:
+      psiSkill: 1.0
+    
+    experienceTrainingMode: 26

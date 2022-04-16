@@ -1,3 +1,9 @@
+## Changelog v0.4
+
+- Weirding Module is now a weapon similar to the David Lynch Movie
+- Moved WM's Panic and Mind Control to 'The Voice' Skills
+- The Voice requires training via a soldierTransformation
+
 ## Changelog v0.3 (requires 7.5.13)
 
 - Enabled Distrans Bats

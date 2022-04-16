@@ -7,3 +7,8 @@ armors:
 
 # "Crossing the prime meridian in mission zones requires a different syntax, region: STR_SOUTH_POLE, zone: 2, area: 0, lonMin: 351, lonMax: 22"
 # can't be fixed in a submod
+
+soldiers:
+  - type: STR_SOLDIER_FEDAYKIN    
+    requires:
+      - STR_FEDAYKIN

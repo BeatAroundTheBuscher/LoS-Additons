@@ -3,7 +3,7 @@ en-US:
 
 ## Personal Shield
 
-  STR_TOGGLE_PERSONAL_SHIELD: "Toggle Personal Shield"
+  STR_TOGGLE_PERSONAL_SHIELD: "Personal Shield: Toggle"
 
   STR_SHIELD_ENABLED: "Shield enabled!"
   STR_SHIELD_DISABLED: "Shield disabled!"
@@ -23,8 +23,8 @@ en-US:
 ## Psi
 
   STR_VOICE_INBUILT: "The Voice"
-  STR_FORCE_PANIC: "Fear"
-  STR_FORCE_PERSUASION: "Persuasion"
+  STR_FORCE_PANIC: "The Voice: Fear"
+  STR_FORCE_PERSUASION: "The Voice: Persuasion"
 
 ## Research
 

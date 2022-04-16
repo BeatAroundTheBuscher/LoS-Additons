@@ -2,3 +2,4 @@ extraSprites:
   - type: SPICONS.DAT
     files:
       200: Resources/Spicons/spicon_pshield.png
+      201: Resources/Spicons/spicon_skills.png

@@ -1,0 +1,8 @@
+ufopaedia:
+  - id: STR_VOICE_INBUILT
+    type_id: 4
+    section: STR_NOT_AVAILABLE
+
+  - id: STR_INVISIBLE_BOMB
+    type_id: 4
+    section: STR_NOT_AVAILABLE

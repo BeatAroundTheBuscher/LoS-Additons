@@ -8,7 +8,6 @@ items:
   - type: STR_VOICE_INBUILT
     battleType: 9
     hitSound: {mod: LandOfSand, index: 36}
-    tuUse: 40
     LOSRequired: true
     recover: false
     fixedWeapon: true
@@ -16,6 +15,16 @@ items:
     invHeight: 0
     weight: 0
     defaultInventorySlot: STR_BELT
+    costMindControl: 
+      time: 30
+      energy: 20
+    costPanic: 
+      time: 30
+      energy: 20
+    flatUse:
+      time: true
+      energy: true
+
 
   - type: STR_INVISIBLE_BOMB
     battleType: 4

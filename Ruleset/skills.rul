@@ -16,12 +16,44 @@ skills:
     # compatibleWeapons: [STR_PERSONAL_SHIELD_GENERATOR]
     # checkHandsOnly: false
 
+  - type: STR_FORCE_PERSUASION # Mind Control
+    battleType: 9
+    targetMode: 13
+    isPsiRequired: true
+    requiredBonuses:
+      - STR_VOICE_BONUS
+    costUse: 
+      time: 40
+      energy: 20
+    flatUse:
+      time: true
+      energy: true
+    compatibleWeapons: [STR_VOICE_INBUILT]
+    checkHandsOnly: false
+
+  - type: STR_FORCE_PANIC # Panic
+    battleType: 9
+    targetMode: 14
+    isPsiRequired: true
+    requiredBonuses:
+      - STR_VOICE_BONUS
+    costUse: 
+      time: 30
+      energy: 15
+    flatUse:
+      time: true
+      energy: true
+    compatibleWeapons: [STR_VOICE_INBUILT]
+    checkHandsOnly: false
+
 soldiers:
   - &STR_PERSONAL_SHIELD_SKILL
     type: STR_SOLDIER
     skillIconSprite: 200
     skills:
       - STR_TOGGLE_PERSONAL_SHIELD
+      - STR_FORCE_PERSUASION
+      - STR_FORCE_PANIC
 
   - type: STR_SOLDIER_FEDAYKIN
     refNode: *STR_PERSONAL_SHIELD_SKILL

@@ -14,9 +14,17 @@ en-US:
   STR_SHIELD_HIT_BY_LAS_ATTACKER_EXPLODES: "Las hit Shield! Attacker explodes next turn!"
   STR_SHIELD_HIT_BY_LAS_BOTH_EXPLODE: "Las hit Shield! Target explodes and Attacker explodes next turn!"
 
+  STR_INVISIBLE_BOMB: "Shield Explosion"
+
 
   # DEBUG only - requires no translation - not visible to the player
   STR_SHIELD_HIT_INVALID_STATE: "Las hit Shield! INVALID STATE!!!"
+
+## Psi
+
+  STR_VOICE_INBUILT: "The Voice"
+  STR_FORCE_PANIC: "Fear"
+  STR_FORCE_PERSUASION: "Persuasion"
 
 ## Research
 

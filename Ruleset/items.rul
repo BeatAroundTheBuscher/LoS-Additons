@@ -5,6 +5,18 @@ extended:
       ITEM_IS_BOMB: int
 
 items:
+  - type: STR_VOICE_INBUILT
+    battleType: 9
+    hitSound: {mod: LandOfSand, index: 36}
+    tuUse: 40
+    LOSRequired: true
+    recover: false
+    fixedWeapon: true
+    invWidth: 0
+    invHeight: 0
+    weight: 0
+    defaultInventorySlot: STR_BELT
+
   - type: STR_INVISIBLE_BOMB
     battleType: 4
     power: 85
@@ -13,14 +25,12 @@ items:
       FixRadius: 7
 
     recover: false
-    requires:
-      - STR_NOT_AVAILABLE
+    fixedWeapon: true
     armor: 999
     invWidth: 0
     invHeight: 0
     weight: 0
-    supportedInventorySections:
-      - STR_BELT
+    defaultInventorySlot: STR_BELT
     isExplodingInHands: true
     tags:
       ITEM_IS_BOMB: 1
@@ -110,7 +120,13 @@ items:
     damageAlter:
       FixRadius: 2
     accuracySnap: 100
-    tuSnap: 35
+    costSnap:
+      time: 35
+      energy: 20
+    flatSnap:
+      time: false
+      energy: true
+
     power: 0
     bulletSprite: {mod: LandOfSand, index: 27}
     fireSound: {mod: LandOfSand, index: 103}
@@ -124,3 +140,4 @@ items:
       psiSkill: 1.0
     
     experienceTrainingMode: 26
+

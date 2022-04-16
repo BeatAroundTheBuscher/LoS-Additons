@@ -2,18 +2,22 @@ armors:
   - type: STR_ARMOR_FREMEN_CLOTHING_UC
     builtInWeapons:
       - STR_INVISIBLE_BOMB
+      - STR_VOICE_INBUILT
 
   - type: STR_ARMOR_STILLSUIT_UC
     builtInWeapons:
       - STR_INVISIBLE_BOMB
+      - STR_VOICE_INBUILT
 
   - type: STR_ARMOR_FREMEN_CLOTHING_FEDAYKIN_UC
     builtInWeapons:
       - STR_INVISIBLE_BOMB
+      - STR_VOICE_INBUILT
 
   - type: STR_ARMOR_STILLSUIT_FEDAYKIN_UC
     builtInWeapons:
       - STR_INVISIBLE_BOMB
+      - STR_VOICE_INBUILT
 
   - type: STR_HARKONNEN_LEADER_ARMOR # Harkonnen Trooper as base line
     damageModifier:

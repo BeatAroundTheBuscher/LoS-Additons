@@ -1,0 +1,19 @@
+soldierTransformation:
+  - name: STR_VOICE_TRAINING
+    requires:
+      - STR_PSI_TEMPLE
+      - STR_GESSERIT_SISTER
+    keepSoldierArmor: true
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_SOLDIER_FEDAYKIN
+    forbiddenPreviousTransformations:
+      - STR_VOICE_TRAINING
+    cost: 150000
+    transferTime: 720
+    soldierBonusType: STR_VOICE_BONUS
+    requiredMinStats:
+      psiStrength: 50
+      psiSkill: 50

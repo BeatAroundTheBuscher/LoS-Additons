@@ -1,0 +1,19 @@
+en-US:
+  STR_OPENXCOM: "Land of Sand"
+
+## Personal Shield
+
+  STR_TOGGLE_PERSONAL_SHIELD: "Toggle Personal Shield"
+
+  STR_SHIELD_ENABLED: "Shield enabled!"
+  STR_SHIELD_DISABLED: "Shield disabled!"
+
+  STR_SHIELD_ABSORBED_DAMAGE: "Shield absorbed Damage!"
+
+  STR_SHIELD_HIT_BY_LAS_TARGET_EXPLODES: "Las hit Shield! Target explodes!"
+  STR_SHIELD_HIT_BY_LAS_ATTACKER_EXPLODES: "Las hit Shield! Attacker explodes next turn!"
+  STR_SHIELD_HIT_BY_LAS_BOTH_EXPLODE: "Las hit Shield! Target explodes and Attacker explodes next turn!"
+
+
+  # DEBUG only - requires no translation - not visible to the player
+  STR_SHIELD_HIT_INVALID_STATE: "Las hit Shield! INVALID STATE!!!"

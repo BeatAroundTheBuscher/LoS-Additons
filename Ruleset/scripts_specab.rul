@@ -44,12 +44,12 @@ extended:
                 # set tmp 2; # 1 and 2 don't work as they don't trigger damageSpecialUnit
 
                 if eq tmp 0; # target explodes
-                  battle_game.flashLongMessage "Las hit Shield! Target explodes!";
+                  battle_game.flashLongMessage "STR_SHIELD_HIT_BY_LAS_TARGET_EXPLODES";
                   unit.setTag Tag.WILL_EXPLODE_NOW 1;
                   set power 9999; # should always be able to kill
                 else eq tmp 1; # shooter explodes
                   set power 0;
-                  battle_game.flashLongMessage "Las hit Shield! Attacker explodes next turn!";
+                  battle_game.flashLongMessage "STR_SHIELD_HIT_BY_LAS_ATTACKER_EXPLODES";
                   # attacker.setTag Tag.WILL_EXPLODE_NOW 1;
                   attacker.setHealth 0;
 
@@ -71,7 +71,7 @@ extended:
                   # attacker.setHealth 0;
 
                 else eq tmp 2; # both explode
-                  battle_game.flashLongMessage "Las hit Shield! Target explodes and Attacker explodes next turn!";
+                  battle_game.flashLongMessage "STR_SHIELD_HIT_BY_LAS_BOTH_EXPLODE";
                   unit.setTag Tag.WILL_EXPLODE_NOW 1;
                   set power 9999; # should always be able to kill
                   # attacker.setTag Tag.WILL_EXPLODE_NOW 1;
@@ -89,11 +89,11 @@ extended:
                   # diff
                 else;
                   debug_log "Las hit Shield! INVALID STATE!!!";
-                  battle_game.flashLongMessage "Las hit Shield! INVALID STATE!!!";
+                  battle_game.flashLongMessage "STR_SHIELD_HIT_INVALID_STATE";
                 end;
 
               else and neq damaging_type 6 neq damaging_type 7; # 6 = DT_STUN # LoS calls this 'SHOCK' # 7 = DT_MELEE # LoS calls this 'BLADES'
-                battle_game.flashMessage "Shield absorbed Damage!";
+                battle_game.flashMessage "STR_SHIELD_ABSORBED_DAMAGE";
                 set power 0;
               end;
             end;

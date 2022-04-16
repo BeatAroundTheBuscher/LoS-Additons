@@ -2,3 +2,8 @@
 
 armors:
   - delete: STR_NONE_UC
+
+# regions:
+
+# "Crossing the prime meridian in mission zones requires a different syntax, region: STR_SOUTH_POLE, zone: 2, area: 0, lonMin: 351, lonMax: 22"
+# can't be fixed in a submod

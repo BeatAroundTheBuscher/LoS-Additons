@@ -14,3 +14,42 @@ armors:
   - type: STR_ARMOR_STILLSUIT_FEDAYKIN_UC
     builtInWeapons:
       - STR_INVISIBLE_BOMB
+
+  - type: STR_HARKONNEN_LEADER_ARMOR # Harkonnen Trooper as base line
+    damageModifier:
+      - 1.0 # DT_NONE
+      - 1.0 # DT_AP 
+      - 0.6 # DT_IN
+      - 1.0 # DT_HE
+      - 1.0 # DT_LASER
+      - 1.0 # DT_PLASMA
+      - 0.9 # DT_STUN
+      - 1.0 # DT_MELEE
+      - 1.0 # DT_ACID
+      - 1.0 # DT_SMOKE
+
+  - type: STR_SARDAUKAR_OFFICER_ARMOR # Sardaukar Soldier as base line
+    damageModifier:
+      - 1.0
+      - 0.8
+      - 1.0
+      - 1.0
+      - 0.8
+      - 1.0
+      - 0.5
+      - 1.0
+      - 1.0
+      - 1.0
+
+  - type: STR_ATREIDES_OFFICER_ARMOR # same as Defector
+    damageModifier:
+      - 1.0
+      - 0.9
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0

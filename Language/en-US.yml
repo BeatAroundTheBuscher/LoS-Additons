@@ -30,6 +30,10 @@ en-US:
 
   STR_PERSONAL_SHIELD_GENERATOR_PREREQUISITE: "(Personal Shield Prerequisite)"
 
+## Ufopaedia
+
+  STR_UP_WEIRDING_MODULE_LOSA: "The Weirding Module allows a fighter to use his voice as psycho-acoustic weapon and influence an enemies mind. It can only be used by fighters with psionic abilities on visible targets."
+
 ## Vanilla 
 
   STR_GRENADE_IS_ACTIVATED: "Item is Activated!"

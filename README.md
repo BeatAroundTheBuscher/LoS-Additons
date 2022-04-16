@@ -1,4 +1,4 @@
-# Land of Sands - Additions
+# Land of Sand - Additions
 
 A submod for the OXCE mod Land of Sands
 

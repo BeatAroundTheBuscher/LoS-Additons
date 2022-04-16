@@ -1,4 +1,14 @@
-## Changelog
+## Changelog v0.3 (requires 7.5.13)
+
+- Enabled Distrans Bats
+- Added Personal Shield Toggle (on/off)
+- Personal Shields shows status with the primed indicator
+- When a Lasgun hits a Personal Shield there are now three outcomes:
+  - Target explodes
+  - Attacker dies and explodes next turn
+  - Target explodes as well as Attacker dies and explodes next turn
+
+## Changelog v0.1 + v0.2
 
 - Personal Shields are equipable items now that 
   - block all damage but Blades (Melee) and Shock (Stun)

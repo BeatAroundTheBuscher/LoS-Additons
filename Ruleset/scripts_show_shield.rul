@@ -4,6 +4,8 @@ extended:
   tags:
     RuleItem:
       ITEM_IS_PERSONAL_SHIELD: int
+    BattleItem:
+      PERSONAL_SHIELD_IS_ACTIVATED: int  
     BattleUnit:
 #*** Tags for handling recoloring of units ***
       UNIT_RECOLOR_DESYNC: int
@@ -11,26 +13,41 @@ extended:
       UNIT_RECOLOR_BRIGHTNESS: int
       UNIT_RECOLOR_START_FRAME: int
       UNIT_RECOLOR_FRAME_LENGTH: int
-      UNIT_HAS_PERSONAL_SHIELD_WORKING: int
+      UNIT_HAS_PERSONAL_SHIELD_ACTIVATED: int
       
   scripts:
+    createItem:
+      - offset: 10
+        code: |
+          var int temp;
+
+          item.getTag temp Tag.ITEM_IS_PERSONAL_SHIELD;
+          if gt temp 0;
+            item.setTag Tag.PERSONAL_SHIELD_IS_ACTIVATED 1;
+            item.setFuseTimer 200; # should be good enough? requires a reset each turn?
+            item.setFuseEnabled 1;
+          end;
+
+          return;
+
+
     newTurnUnit:
       - offset: 10
         code: |
-          var int isPersonalShield;
+          var int isPersonalShieldActivated;
           var int numInventoryItems;
           var ptre BattleItem personalShieldItem;
 
-          unit.setTag Tag.UNIT_HAS_PERSONAL_SHIELD_WORKING 0; # for visualization only
+          unit.setTag Tag.UNIT_HAS_PERSONAL_SHIELD_ACTIVATED 0; # for visualization only
           # there is no ptr for getInventoryItem(.size)
           # it probably doesn't exist so we don't iterate through the entire inventory in every cycle
 
           unit.getInventoryItem.size numInventoryItems; # find personal shield
           loop var i numInventoryItems;
             unit.getInventoryItem personalShieldItem i;
-            personalShieldItem.getTag isPersonalShield Tag.ITEM_IS_PERSONAL_SHIELD;
-            if eq isPersonalShield 1;
-              unit.setTag Tag.UNIT_HAS_PERSONAL_SHIELD_WORKING 1;
+            personalShieldItem.getTag isPersonalShieldActivated Tag.PERSONAL_SHIELD_IS_ACTIVATED;
+            if eq isPersonalShieldActivated 1;
+              unit.setTag Tag.UNIT_HAS_PERSONAL_SHIELD_ACTIVATED 1;
             end;
           end;
 
@@ -50,7 +67,7 @@ extended:
 
           var int unitHasShield;
 
-          unit.getTag unitHasShield Tag.UNIT_HAS_PERSONAL_SHIELD_WORKING;
+          unit.getTag unitHasShield Tag.UNIT_HAS_PERSONAL_SHIELD_ACTIVATED;
 
           
 

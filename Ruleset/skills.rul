@@ -1,0 +1,28 @@
+extended:
+  tags:
+    RuleSkill:
+      SKILL_ID: int
+
+
+skills:
+  - type: STR_TOGGLE_PERSONAL_SHIELD
+    tags: 
+      SKILL_ID: 1
+    costUse:
+      time: 8 # doesn't seem to do anything?
+    flatUse: 
+      time: true
+    # requires different action than BA_NONE
+    # compatibleWeapons: [STR_PERSONAL_SHIELD_GENERATOR]
+    # checkHandsOnly: false
+
+soldiers:
+  - type: STR_SOLDIER
+    skillIconSprite: 1
+    skills:
+      - STR_TOGGLE_PERSONAL_SHIELD
+
+  - type: STR_SOLDIER_FEDAYKIN
+    skillIconSprite: 1
+    skills:
+      - STR_TOGGLE_PERSONAL_SHIELD

@@ -5,6 +5,8 @@ extended:
       ITEM_IS_PERSONAL_SHIELD: int
     RuleArmor:
       ARMOR_ALWAYS_EXPLODES: int
+    BattleItem:
+      PERSONAL_SHIELD_IS_ACTIVATED: int 
     BattleUnit:
       WILL_EXPLODE_NOW: int
 
@@ -17,6 +19,7 @@ extended:
           var int numInventoryItems;
           var ptre BattleItem personalShieldItem;
           var int isPersonalShield;
+          var int isPersonalShieldActivated;
 
           var ptr RuleUnit testUnit;
 
@@ -27,7 +30,9 @@ extended:
           loop var i numInventoryItems;
             unit.getInventoryItem personalShieldItem i;
             personalShieldItem.getTag isPersonalShield Tag.ITEM_IS_PERSONAL_SHIELD;
-            if eq isPersonalShield 1;
+            personalShieldItem.getTag isPersonalShieldActivated Tag.PERSONAL_SHIELD_IS_ACTIVATED;
+
+            if and eq isPersonalShield 1 eq isPersonalShieldActivated 1;
               if eq damaging_type 4; # 4 = DT_LASER
                 battle_game.randomRange tmp 0 2;
                 # debug_log "randomRange rolled" tmp;

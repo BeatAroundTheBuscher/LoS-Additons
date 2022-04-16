@@ -1,0 +1,54 @@
+extended:
+  tags:
+    RuleSkill:
+      SKILL_ID: int
+    RuleItem:
+      ITEM_IS_PERSONAL_SHIELD: int
+    BattleItem:
+      PERSONAL_SHIELD_IS_ACTIVATED: int  
+    BattleUnit:
+      UNIT_HAS_PERSONAL_SHIELD_ACTIVATED: int
+
+
+  scripts:
+    skillUseUnit:
+      - offset: 1 
+        code: |
+          var int selectedSkill;
+          var int numInventoryItems;
+          var int isPersonalShieldActivated;
+          var int isPersonalShield;
+
+          var ptre BattleItem personalShieldItem;
+          var int currentTUs;
+
+          if neq battle_action BA_NONE;
+            return;
+          end;
+
+          skill.getTag selectedSkill Tag.SKILL_ID;
+
+          if eq selectedSkill 1; # toggle shield
+
+            actor.getInventoryItem.size numInventoryItems; # find personal shield
+            loop var i numInventoryItems;
+              actor.getInventoryItem personalShieldItem i;
+              personalShieldItem.getTag isPersonalShield Tag.ITEM_IS_PERSONAL_SHIELD;
+              personalShieldItem.getTag isPersonalShieldActivated Tag.PERSONAL_SHIELD_IS_ACTIVATED;
+
+              if and eq isPersonalShield 1 eq isPersonalShieldActivated 1;
+                battle_game.flashLongMessage "Shield disabled!";
+                actor.setTag Tag.UNIT_HAS_PERSONAL_SHIELD_ACTIVATED 0;
+                personalShieldItem.setTag Tag.PERSONAL_SHIELD_IS_ACTIVATED 0;
+                personalShieldItem.setFuseEnabled 0;
+              else and eq isPersonalShield 1 eq isPersonalShieldActivated 0;
+                battle_game.flashLongMessage "Shield enabled!";
+                actor.setTag Tag.UNIT_HAS_PERSONAL_SHIELD_ACTIVATED 1;
+                personalShieldItem.setTag Tag.PERSONAL_SHIELD_IS_ACTIVATED 1;
+                personalShieldItem.setFuseEnabled 1;
+              end;
+            end;
+
+          end;
+
+          return;

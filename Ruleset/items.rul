@@ -9,6 +9,11 @@ items:
     clipSize: -1
     tags:
       ITEM_IS_PERSONAL_SHIELD: 1
+    inventoryMoveCost: # cannot be moved
+      basePercent: 10000 #TU multiplier of base cost
+    supportedInventorySections:
+      - STR_BELT
+    
 
 # https://openxcom.org/forum/index.php/topic,4230.0.html
 

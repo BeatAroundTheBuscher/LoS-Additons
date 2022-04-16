@@ -1,0 +1,4 @@
+extraSprites:
+  - type: SPICONS.DAT
+    files:
+      200: Resources/Spicons/spicon_pshield.png

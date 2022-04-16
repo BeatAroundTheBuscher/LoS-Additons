@@ -17,12 +17,11 @@ skills:
     # checkHandsOnly: false
 
 soldiers:
-  - type: STR_SOLDIER
-    skillIconSprite: 1
+  - &STR_PERSONAL_SHIELD_SKILL
+    type: STR_SOLDIER
+    skillIconSprite: 200
     skills:
       - STR_TOGGLE_PERSONAL_SHIELD
 
   - type: STR_SOLDIER_FEDAYKIN
-    skillIconSprite: 1
-    skills:
-      - STR_TOGGLE_PERSONAL_SHIELD
+    refNode: *STR_PERSONAL_SHIELD_SKILL

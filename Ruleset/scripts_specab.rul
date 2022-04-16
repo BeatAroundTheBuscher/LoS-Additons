@@ -28,7 +28,17 @@ extended:
           var ptre BattleItem bombItem;
           var int isBomb;
 
-          # debug_log "damaging_type" damaging_type;
+          if and eq damaging_type 1 eq damaging_item null eq part 1 eq side 4; # debug kill
+            debug_log "Found DEBUG Kill;
+            debug_log "damaging_item" damaging_item;
+            debug_log "orig_power" orig_power;
+            debug_log "power" power;
+            debug_log "part" part;
+            debug_log "side" side;
+            debug_log "damaging_type" damaging_type;
+            return power part side;
+          end;
+
 
           unit.getInventoryItem.size numInventoryItems; # find personal shield
           loop var i numInventoryItems;

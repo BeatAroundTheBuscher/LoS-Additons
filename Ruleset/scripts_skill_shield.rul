@@ -21,7 +21,7 @@ extended:
 
           var ptre BattleItem personalShieldItem;
 
-          if neq battle_action BA_NONE;
+          if or neq battle_action BA_NONE eq have_tu 0;
             return;
           end;
 

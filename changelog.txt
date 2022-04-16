@@ -2,13 +2,16 @@
 
 - Enabled Distrans Bats
 - Added Personal Shield Toggle (on/off)
-- Personal Shields shows status with the primed indicator
+- Personal Shields show status with the primed indicator
+- Personal Shields can only be worn on belts
 - When a Lasgun hits a Personal Shield there are now three outcomes:
   - Target explodes
   - Attacker dies and explodes next turn
   - Target explodes + Attacker dies and explodes next turn
 - Leader armor has 'normal'/non-personal shield damageModifiers
 - Purchasing Personal Shield is behind any Leader using Personal Shields and Global Smugglers
+- Bases don't drop E115 any longer
+- Enabled statisticalBulletConservation (not part of fixedUserOptions anymore)
 
 ## Changelog v0.1 + v0.2
 

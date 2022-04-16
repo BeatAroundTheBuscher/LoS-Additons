@@ -1,6 +1,6 @@
 # Land of Sand - Additions
 
-A submod for the OXCE mod Land of Sands
+A submod for the OXCE mod Land of Sand
 
 https://openxcom.org/forum/index.php/topic,2957.0.html
 

@@ -11,6 +11,7 @@ items:
     damageAlter:
       FixRadius: 7
 
+    recover: false
     requires:
       - STR_NOT_AVAILABLE
     armor: 999
@@ -98,4 +99,6 @@ items:
     flatRate: true
 
   - type: STR_ELERIUM_115 # do not loot from maps
-    specialType: 1200 
+    # specialType: 1200 # nope
+    recoveryTransformations:
+      STR_WATER: [5]

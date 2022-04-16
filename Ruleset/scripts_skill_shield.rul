@@ -20,7 +20,6 @@ extended:
           var int isPersonalShield;
 
           var ptre BattleItem personalShieldItem;
-          var int currentTUs;
 
           if neq battle_action BA_NONE;
             return;
@@ -37,15 +36,17 @@ extended:
               personalShieldItem.getTag isPersonalShieldActivated Tag.PERSONAL_SHIELD_IS_ACTIVATED;
 
               if and eq isPersonalShield 1 eq isPersonalShieldActivated 1;
-                battle_game.flashLongMessage "STR_SHIELD_DISABLED";
+                battle_game.flashMessage "STR_SHIELD_DISABLED";
                 actor.setTag Tag.UNIT_HAS_PERSONAL_SHIELD_ACTIVATED 0;
                 personalShieldItem.setTag Tag.PERSONAL_SHIELD_IS_ACTIVATED 0;
                 personalShieldItem.setFuseEnabled 0;
+                set spend_tu 1;
               else and eq isPersonalShield 1 eq isPersonalShieldActivated 0;
-                battle_game.flashLongMessage "STR_SHIELD_ENABLED";
+                battle_game.flashMessage "STR_SHIELD_ENABLED";
                 actor.setTag Tag.UNIT_HAS_PERSONAL_SHIELD_ACTIVATED 1;
                 personalShieldItem.setTag Tag.PERSONAL_SHIELD_IS_ACTIVATED 1;
                 personalShieldItem.setFuseEnabled 1;
+                set spend_tu 1;
               end;
             end;
 

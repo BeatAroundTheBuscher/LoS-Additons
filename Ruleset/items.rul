@@ -150,3 +150,5 @@ items:
     
     experienceTrainingMode: 26
 
+  - type: STR_STUN_ROD
+    meleeMissAnimation: 0

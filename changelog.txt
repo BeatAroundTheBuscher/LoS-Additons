@@ -6,7 +6,9 @@
 - When a Lasgun hits a Personal Shield there are now three outcomes:
   - Target explodes
   - Attacker dies and explodes next turn
-  - Target explodes as well as Attacker dies and explodes next turn
+  - Target explodes + Attacker dies and explodes next turn
+- Leader armor has 'normal'/non-personal shield damageModifiers
+- Purchasing Personal Shield is behind any Leader using Personal Shields and Global Smugglers
 
 ## Changelog v0.1 + v0.2
 
@@ -15,7 +17,7 @@
   - blows up when shot by a Las weapon
 - Personal Shields are given to enemy depending on current tech level (months passed)
 - Personal Shields can not be extracted from bodies (cold or warm)
-- Cutter ammo was moved back a bit.
+- Cutter ammo was moved back a bit
 - Database article for cutter ammo becomes available once cutter ammo is purchasable
 - Melee weapons train reactions additionally to melee
 - Bandages train bravery

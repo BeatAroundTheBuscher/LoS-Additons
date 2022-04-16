@@ -17,3 +17,11 @@ en-US:
 
   # DEBUG only - requires no translation - not visible to the player
   STR_SHIELD_HIT_INVALID_STATE: "Las hit Shield! INVALID STATE!!!"
+
+## Research
+
+  STR_PERSONAL_SHIELD_GENERATOR_PREREQUISITE: "(Personal Shield Prerequisite)"
+
+## Vanilla 
+
+  STR_GRENADE_IS_ACTIVATED: "Item is Activated!"

@@ -31,6 +31,8 @@ items:
     damageAlter:
       FixRadius: 7
 
+    requiresBuy:
+      - STR_PERSONAL_SHIELD_GENERATOR
     inventoryMoveCost: # cannot be moved
       basePercent: 10000 #TU multiplier of base cost
     supportedInventorySections:

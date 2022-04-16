@@ -8,3 +8,6 @@
   - name: STR_BAT
     dependencies:
       - STR_DISTRANS
+
+  - name: STR_NOT_AVAILABLE
+    needItem: true

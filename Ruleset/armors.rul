@@ -1,0 +1,16 @@
+armors:
+  - type: STR_ARMOR_FREMEN_CLOTHING_UC
+    builtInWeapons:
+      - STR_INVISIBLE_BOMB
+
+  - type: STR_ARMOR_STILLSUIT_UC
+    builtInWeapons:
+      - STR_INVISIBLE_BOMB
+
+  - type: STR_ARMOR_FREMEN_CLOTHING_FEDAYKIN_UC
+    builtInWeapons:
+      - STR_INVISIBLE_BOMB
+
+  - type: STR_ARMOR_STILLSUIT_FEDAYKIN_UC
+    builtInWeapons:
+      - STR_INVISIBLE_BOMB

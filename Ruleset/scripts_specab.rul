@@ -3,6 +3,7 @@ extended:
   tags:
     RuleItem:
       ITEM_IS_PERSONAL_SHIELD: int
+      ITEM_IS_BOMB: int
     RuleArmor:
       ARMOR_ALWAYS_EXPLODES: int
     BattleItem:
@@ -23,6 +24,9 @@ extended:
 
           var ptr RuleUnit testUnit;
 
+          var int numInventoryItemsAttacker;
+          var ptre BattleItem bombItem;
+          var int isBomb;
 
           # debug_log "damaging_type" damaging_type;
 
@@ -37,18 +41,27 @@ extended:
                 battle_game.randomRange tmp 0 2;
                 # debug_log "randomRange rolled" tmp;
 
-                set tmp 0; # 1 and 2 don't work as they don't trigger damageSpecialUnit
+                # set tmp 2; # 1 and 2 don't work as they don't trigger damageSpecialUnit
 
                 if eq tmp 0; # target explodes
                   battle_game.flashLongMessage "Las hit Shield! Target explodes!";
                   unit.setTag Tag.WILL_EXPLODE_NOW 1;
                   set power 9999; # should always be able to kill
                 else eq tmp 1; # shooter explodes
-                  battle_game.flashLongMessage "Las hit Shield! Attacker explodes!";
                   set power 0;
-                  attacker.setTag Tag.WILL_EXPLODE_NOW 1;
+                  battle_game.flashLongMessage "Las hit Shield! Attacker explodes next turn!";
+                  # attacker.setTag Tag.WILL_EXPLODE_NOW 1;
                   attacker.setHealth 0;
 
+                  attacker.getInventoryItem.size numInventoryItems; # find hidden bomb
+                  loop var j numInventoryItems;
+                    attacker.getInventoryItem bombItem j;
+                    bombItem.getTag isBomb Tag.ITEM_IS_BOMB;
+                    if eq isBomb 1;
+                      bombItem.setFuseTimer 1;
+                      bombItem.setFuseEnabled 1;
+                    end;
+                  end;
                   # different attempts to trigger damageSpecialUnit
                   # attacker.setStun 999;
                   # rules.getRuleUnit testUnit "STR_BAT";
@@ -58,11 +71,22 @@ extended:
                   # attacker.setHealth 0;
 
                 else eq tmp 2; # both explode
-                  battle_game.flashLongMessage "Las hit Shield! Target and Attacker explode!";
+                  battle_game.flashLongMessage "Las hit Shield! Target explodes and Attacker explodes next turn!";
                   unit.setTag Tag.WILL_EXPLODE_NOW 1;
                   set power 9999; # should always be able to kill
-                  attacker.setTag Tag.WILL_EXPLODE_NOW 1;
+                  # attacker.setTag Tag.WILL_EXPLODE_NOW 1;
                   attacker.setHealth 0;
+
+                  attacker.getInventoryItem.size numInventoryItems; # copy paste from above # rewrite for code reuse
+                  loop var j numInventoryItems;
+                    attacker.getInventoryItem bombItem j;
+                    bombItem.getTag isBomb Tag.ITEM_IS_BOMB;
+                    if eq isBomb 1;
+                      bombItem.setFuseTimer 1;
+                      bombItem.setFuseEnabled 1;
+                    end;
+                  end;
+                  # diff
                 else;
                   debug_log "Las hit Shield! INVALID STATE!!!";
                   battle_game.flashLongMessage "Las hit Shield! INVALID STATE!!!";
